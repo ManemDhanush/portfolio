@@ -6,7 +6,7 @@ draft: false
 tags: ["ML", "AI", "Python", "PCA", "Data Compression"]
 weight: 107
 cover:
-    image: "/blog/pca-visualized/cover.jpg"
+    image: "/about/pca-visualized/cover.jpg"
 ---
 # Introduction
 
@@ -22,17 +22,17 @@ Principal component analysis (PCA) is a technique for reducing the dimensionalit
 
 This part is going to be a bit technical, so bear with me! I will try to explain the working of PCA with a simple example. Let’s consider the data shown below containing 100 points each 2 dimensional (x & y coordinates is needed to represent each point).
 
-![](/blog/pca-visualized/img1.png#center)
+![](/about/pca-visualized/img1.png#center)
 
 Currently, we are using 2 values to represent each point. Let’s explain this situation in a more technical way. We are currently using 2 basis functions,x as (1, 0) and y as (0, 1). Each point in the dataset is represented as a weighted sum of these basis functions. For instance, point (2, 3) can be represented as 2(1, 0) + 3(0, 1) = (2, 3). If we omit either of these basis functions, we will not be able to represent the points in the dataset accurately. Therefore, both the dimensions necessary, and we can’t just drop one of them to reduce the storage requirement. This set of basis functions is actually the cartesian coordinate in 2 dimensions.
 
 If we notice closely, we can very well see that the data approximates a line as shown by the red line below.
 
-![](/blog/pca-visualized/img2.png#center)
+![](/about/pca-visualized/img2.png#center)
 
 Now, let’s rotate the coordinate system such that the x-axis lies along the red line. Then, the y-axis (green line) will be perpendicular to this red line. Let’s call these new x and y axes as a-axis and b-axis respectively. This is shown below.
 
-![](/blog/pca-visualized/img3.png#center)
+![](/about/pca-visualized/img3.png#center)
 
 Now, if we use **a** and **b** as the new set basis functions (instead of using **x** and **y**) for this dataset, it wouldn’t be wrong to say that most of the variance in the dataset is along the **a-axis**. Now, if we drop the **b-axis,** we can still represent the points in the dataset very accurately, using just **a-axis**. Therefore, we now only need half as must storage to store the dataset and reconstruct it accurately. This is exactly how PCA works.
 
@@ -55,19 +55,19 @@ Since this is a 2-dimensional dataset, *n*=2. The first step is to find the new
 
 To accomplish this, we can find the eigenvalues and eigenvectors of the covariance matrix of the dataset. Since the dataset is 2 dimensional, we will get 2 eigenvalues and their corresponding eigenvectors. Then, the 2 eigenvectors are two basis functions (new axes) and the two eigenvalues tell us the variance contribution of the corresponding eigenvectors. A large value of eigenvalue implies that the corresponding eigenvector (axis) contributes more towards the total variance of the dataset.
 
-![](/blog/pca-visualized/img4.png#center)
+![](/about/pca-visualized/img4.png#center)
 
 ## Step 2
 
 Now, sort the eigenvectors (axes) according to decreasing eigenvalues. Here, we can see that the eigenvalue for **a-axis** is much larger than that of the**b-axis** meaning that a-axis contributes more towards the dataset variance.
 
-![](/blog/pca-visualized/img5.png#center)
+![](/about/pca-visualized/img5.png#center)
 
 The percentage contribution of each axis towards the total dataset variance can be calculated as:
 
-![](/blog/pca-visualized/img6.jpg#center)
+![](/about/pca-visualized/img6.jpg#center)
 
-![](/blog/pca-visualized/img7.png#center)
+![](/about/pca-visualized/img7.png#center)
 
 The above numbers prove that the **a-axis** contributes 99.7% towards the dataset variance and that we can drop the **b-axis** and lose just 0.28% of the variance.
 
@@ -75,24 +75,24 @@ The above numbers prove that the **a-axis** contributes 99.7% towards the data
 
 Now, we will drop the **b-axis** and keep only the **a-axis.**
 
-![](/blog/pca-visualized/img8.png#center)
+![](/about/pca-visualized/img8.png#center)
 
 ## Step 4
 
 Now, reshape the first eigenvector (a-axis) into a 2x1 matrix, called the projection matrix. It will be used to project the original dataset of shape(100, 2) onto the new basis function (a-axis), thus compressing it to (100, 1).
 
-![](/blog/pca-visualized/img9.jpg#center)
+![](/about/pca-visualized/img9.jpg#center)
 
 # Reconstruct the data
 
 Now, we can use the projection matrix to expand the data back to its original size, with of course a small loss of variance (0.28%).
 
-![](/blog/pca-visualized/img10.jpg#center)
+![](/about/pca-visualized/img10.jpg#center)
 
 The reconstructed data is shown below:
 
 
-![](/blog/pca-visualized/img11.png#center)
+![](/about/pca-visualized/img11.png#center)
 
 Please note that the variance along the **b-axis** (0.28%) is lost as evident by the above figure.
 

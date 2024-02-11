@@ -6,7 +6,7 @@ draft: false
 tags: ["DL", "AI", "Python", "PyTorch"]
 weight: 104
 cover:
-    image: "/blog/face-landmarks-detection/cover.jpg"
+    image: "/about/face-landmarks-detection/cover.jpg"
     # caption: "A sample landmark detection on a photo by Ayo Ogunseinde taken from Unsplash"
 ---
 
@@ -27,7 +27,7 @@ if not os.path.exists('/content/ibug_300W_large_face_landmark_dataset'):
 
 Here is a sample image from the dataset. We can see that the face occupies a very small fraction of the entire image. If we feed the full image to the neural network, it will also process the background (irrelevant information), making it difficult for the model to learn. Therefore, we need to crop the image and feed only the face portion.
 
-![Sample Image and Landmarks from the Dataset](/blog/face-landmarks-detection/img1.jpg)
+![Sample Image and Landmarks from the Dataset](/about/face-landmarks-detection/img1.jpg)
 
 ## Data Preprocessing
 
@@ -151,7 +151,7 @@ dataset = FaceLandmarksDataset(Transforms())
 
 The output of the dataset after preprocessing will look something like this (landmarks have been plotted on the image).
 
-![Preprocessed Data Sample](/blog/face-landmarks-detection/img2.jpg)
+![Preprocessed Data Sample](/about/face-landmarks-detection/img2.jpg)
 
 # Neural Network
 
@@ -329,19 +329,19 @@ plt.show()
 
 **OpenCV Harr Cascade Classifier** is used to detect faces in an image. Object detection using Haar Cascades is a machine learning-based approach where a cascade function is trained with a set of input data. OpenCV already contains many pre-trained classifiers for face, eyes, pedestrians, and many more. In our case, we will be using the face classifier for which you need to download the pre-trained classifier XML file and save it to your working directory.
 
-![Face Detection](/blog/face-landmarks-detection/img3.jpg)
+![Face Detection](/about/face-landmarks-detection/img3.jpg)
 
 Detected faces in the input image are then cropped, resized to **(224, 224)** and fed to our trained neural network to predict landmarks in them.
 
-![Landmarks Detection on the Cropped Face ](/blog/face-landmarks-detection/img4.jpg)
+![Landmarks Detection on the Cropped Face ](/about/face-landmarks-detection/img4.jpg)
 
 The predicted landmarks in the cropped faces are then overlayed on top of the original image. The result is the image shown below. Pretty impressive, right!
 
-![Final Result](/blog/face-landmarks-detection/cover.jpg)
+![Final Result](/about/face-landmarks-detection/cover.jpg)
 
 Similarly, landmarks detection on multiple faces:
 
-![Detection on multiple faces](/blog/face-landmarks-detection/img5.jpg)
+![Detection on multiple faces](/about/face-landmarks-detection/img5.jpg)
 
 Here, you can see that the OpenCV Harr Cascade Classifier has detected multiple faces including a false positive (a fist is predicted as a face). So, the network has plotted some landmarks on that.
 
