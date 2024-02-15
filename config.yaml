@@ -49,7 +49,7 @@ params:
   profileMode:
     enabled: true
     title: "Dhanush Manem"
-    subtitle: Hello 👋, I am Dhanush currently pursuing a Master's degree in Computer Science at Stony Brook University 🏫 and looking for full-stack and system engineering roles. I am a full-stack software engineer 👨‍💻 with over 2 years of experience developing robust web applications. At ZeMoSo Technologies 🏢, I played a key role in optimizing legacy code, implementing efficient data processing workflows, and mentoring interns 👩‍🏫. I have worked extensively with Java, Spring Boot, React ⚛️, Python, and other modern frameworks to build scalable backends, RESTful APIs, cloud systems, and engaging UIs 📱. My projects involve developing advanced features like Raft Protocol 🚣🏻, authentication 🔐, file uploads 📎 and more. I am adept at agile 🚴‍♂️ development methodologies, test-driven ✅ practices, and collaborating 🤝 across functional teams 👨‍👩‍👧‍👦. I am an ambitious 💪 engineer looking to continue growing 🌱 as a full-stack developer and contribute my skills and experience to impactful projects 💡.
+    subtitle: Hello 👋, I am Dhanush currently pursuing a Master's degree in Computer Science at **Stony Brook University** 🏫 and looking for **full-stack** and **system engineering** roles. I come equipped with a robust background in Software Development and Engineering complemented by practical professional experience.
     imageUrl: "home/Dhanush.jpg"
     imageWidth: 220
     imageHeight: 220
